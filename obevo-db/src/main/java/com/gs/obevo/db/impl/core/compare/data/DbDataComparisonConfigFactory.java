@@ -39,10 +39,9 @@ public class DbDataComparisonConfigFactory {
     public static DbDataComparisonConfig createFromProperties(String path) {
         try {
             URL url = DbDataComparisonConfigFactory.class.getClassLoader().getResource(path);
+
             if (url == null) {
                 url = new File(path).toURI().toURL();
-            }
-            if (url == null) {
                 throw new IllegalArgumentException("Could not find resource or file at path: " + path);
             }
 
